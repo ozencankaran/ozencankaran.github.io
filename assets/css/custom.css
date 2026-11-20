@@ -1,0 +1,467 @@
+/* ==========================================================
+   custom.css - Can Karan Özen CV
+   Loaded after main.css, so these rules override the template.
+   ========================================================== */
+
+/* New colour palette */
+:root {
+  --accent-color: #4f46e5;
+  --heading-color: #1e293b;
+  --default-color: #334155;
+  --nav-hover-color: #4f46e5;
+}
+
+/* ===================== LW9 ===================== */
+
+/* LW9 2a. Font family */
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+/* LW9 2b. Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Montserrat", sans-serif;
+  color: var(--heading-color);
+  letter-spacing: 0.5px;
+}
+
+h1 { font-size: 3rem; font-weight: 800; }
+h2 { font-size: 2.2rem; font-weight: 700; }
+h3 { font-size: 1.5rem; font-weight: 700; }
+h4 { font-size: 1.15rem; font-weight: 600; color: var(--accent-color); }
+h5 { font-size: 1rem; font-weight: 600; }
+h6 { font-size: 0.9rem; font-weight: 600; text-transform: uppercase; }
+
+.section-title h2 {
+  font-size: 2.4rem;
+  text-transform: uppercase;
+}
+
+/* LW9 2c. Paragraphs */
+p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--default-color);
+}
+
+/* LW9 3a. Buttons and pseudo-classes */
+.btn-cv,
+.php-email-form button[type="submit"] {
+  display: inline-block;
+  background: var(--accent-color);
+  color: #ffffff;
+  padding: 12px 30px;
+  border: 2px solid var(--accent-color);
+  border-radius: 8px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.btn-cv:hover,
+.php-email-form button[type="submit"]:hover {
+  background: #ffffff;
+  color: var(--accent-color);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.35);
+}
+
+.btn-cv:active,
+.php-email-form button[type="submit"]:active {
+  transform: translateY(0);
+  box-shadow: none;
+  background: #3730a3;
+  color: #ffffff;
+}
+
+/* LW9 3b. Links */
+a {
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+a:hover {
+  color: #3730a3;
+  text-decoration: underline;
+}
+
+/* LW9 4. Spacing and content blocks */
+.about {
+  padding: 90px 0;
+}
+
+.about .content {
+  padding: 30px;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(30, 41, 59, 0.08);
+}
+
+.about img {
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(30, 41, 59, 0.15);
+}
+
+.resume {
+  padding: 90px 0;
+}
+
+.resume .resume-item {
+  margin: 0 0 25px 0;
+  padding: 20px 25px;
+  background: #ffffff;
+  border-left: 4px solid var(--accent-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(30, 41, 59, 0.08);
+}
+
+.resume .resume-item::before {
+  display: none;
+}
+
+.portfolio {
+  padding: 90px 0;
+}
+
+.portfolio .portfolio-item {
+  padding: 15px;
+}
+
+.portfolio .portfolio-item img {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(30, 41, 59, 0.12);
+}
+
+/* LW9 5. Component 1: navigation menu */
+.navmenu a,
+.navmenu a:focus {
+  background: #ffffff;
+  border: 2px solid #c7d2fe;
+  border-radius: 14px;
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.15);
+}
+
+/* LW9 5. Component 2: back to top button */
+.scroll-top {
+  background-color: #1e293b;
+  border-radius: 10px;
+  width: 50px;
+  height: 50px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.scroll-top:hover {
+  background-color: var(--accent-color);
+}
+
+/* ======== LW9 complementary: lists and table ======== */
+
+/* Unordered list: custom marker with a pseudo-element */
+.tools-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.tools-list > li {
+  position: relative;
+  padding: 6px 0 6px 30px;
+}
+
+.tools-list > li::before {
+  content: "▶";
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+}
+
+/* Nested list: different style */
+.tools-list .nested-list {
+  list-style: none;
+  margin-top: 6px;
+  padding-left: 15px;
+  border-left: 3px dashed #c7d2fe;
+}
+
+.tools-list .nested-list li {
+  padding: 3px 0 3px 10px;
+  font-style: italic;
+  color: #64748b;
+}
+
+.tools-list .nested-list li::before {
+  content: "– ";
+  color: #94a3b8;
+}
+
+/* Ordered list: CSS counter */
+.stages-list {
+  list-style: none;
+  padding-left: 0;
+  counter-reset: stage;
+}
+
+.stages-list li {
+  counter-increment: stage;
+  position: relative;
+  padding: 8px 0 8px 48px;
+}
+
+.stages-list li::before {
+  content: counter(stage);
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  border-radius: 50%;
+  background: var(--accent-color);
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* Table */
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(30, 41, 59, 0.1);
+}
+
+.price-table th,
+.price-table td {
+  padding: 14px 18px;
+  text-align: center;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.price-table th {
+  background: var(--accent-color);
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+}
+
+.price-table tbody tr:nth-child(even) {
+  background: #eef2ff;
+}
+
+.price-table tbody tr:hover {
+  background: #c7d2fe;
+}
+
+/* ===================== LW10 ===================== */
+
+/* Skill progress module */
+.progress-module {
+  background: #f8fafc;
+}
+
+/* XP, level and rank */
+.xp-info,
+.skill-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.info-box,
+.stat-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px rgba(30, 41, 59, 0.08);
+}
+
+.info-box {
+  border-top: 4px solid var(--accent-color);
+}
+
+.info-box .label,
+.stat-box .label {
+  font-size: 14px;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.info-box .value,
+.stat-box .value {
+  font-family: "Montserrat", sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--heading-color);
+}
+
+/* XP progress bar */
+.xp-progress {
+  margin-bottom: 25px;
+}
+
+.xp-progress-text {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.xp-bar {
+  height: 20px;
+  background: #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.xp-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4f46e5, #06b6d4);
+  border-radius: 10px;
+}
+
+/* Statistics */
+.stat-box {
+  border: 2px dashed #c7d2fe;
+}
+
+/* Kanban board */
+.kanban-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.board-column {
+  padding: 15px;
+  background: #e2e8f0;
+  border-radius: 14px;
+}
+
+.board-column h3 {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.board-column .count {
+  background: var(--heading-color);
+  color: #ffffff;
+  border-radius: 20px;
+  padding: 0 10px;
+  font-size: 14px;
+}
+
+.skill-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 15px;
+  margin-bottom: 12px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(30, 41, 59, 0.1);
+}
+
+.skill-card h4 {
+  width: 100%;
+  margin: 0;
+  font-size: 1rem;
+  color: var(--heading-color);
+}
+
+.skill-card .status {
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.status.planned { background: #e2e8f0; color: #475569; }
+.status.in-progress { background: #fef3c7; color: #92400e; }
+.status.completed { background: #dcfce7; color: #166534; }
+
+.skill-card .xp {
+  font-weight: 700;
+  color: var(--accent-color);
+}
+
+/* On small screens show one column */
+@media (max-width: 768px) {
+  .xp-info,
+  .skill-stats,
+  .kanban-board {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* LW10 complementary 1: animated gradient in Services */
+.services {
+  background: linear-gradient(-45deg, #eef2ff, #e0f2fe, #f5f3ff, #ecfeff);
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* LW10 complementary 2: animated CSS shapes in About */
+.shapes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  margin-top: 40px;
+}
+
+.shape.circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  animation: floating 3s ease-in-out infinite;
+}
+
+.shape.triangle {
+  width: 0;
+  height: 0;
+  border-left: 35px solid transparent;
+  border-right: 35px solid transparent;
+  border-bottom: 60px solid #06b6d4;
+  animation: rotating 6s linear infinite;
+}
+
+.shape.square {
+  width: 55px;
+  height: 55px;
+  border-radius: 8px;
+  background: #f59e0b;
+  animation: scaling 2.5s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes rotating {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes scaling {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
